@@ -6,6 +6,8 @@ import 'echarts/map/js/world';
 import * as $ from 'jquery';
 import * as config from '../config';
 
+//http://gallery.echartsjs.com/editor.html?c=xSyoA-XXSZ
+//http://gallery.echartsjs.com/editor.html?c=xByCdgiaW-
 
 var data = $.get(config.apiURL + 'mock/db').done(function (data) {
     console.log(data);
