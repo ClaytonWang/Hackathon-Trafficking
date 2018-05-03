@@ -1,0 +1,10 @@
+node_modules
+.DS_Store
+lib
+dist
+.idea
+npm-debug.log
+npm-debug.log.*
+yarn-error.log
+.npmrc
+*.log
