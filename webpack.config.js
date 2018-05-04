@@ -8,7 +8,7 @@ const webpack = require('webpack');
 const jsonServer = require('json-server');
 var server = jsonServer.create();
 
-var data = require('./mock/db.js');
+var data = require('./mock/data.json');
 var router = jsonServer.router(data);
 var middlewares = jsonServer.defaults();
 server.use(middlewares);
@@ -67,6 +67,18 @@ module.exports = {
           },
           {
             loader: 'sass-loader?sourceMap'
+          }
+        ]
+      },
+      {
+        test: require.resolve("jquery"),
+        use: [{
+            loader: "expose-loader",
+            options: "jQuery"
+          },
+          {
+            loader: "expose-loader",
+            options: "$"
           }
         ]
       },
