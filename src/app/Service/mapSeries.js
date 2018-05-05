@@ -27,6 +27,25 @@ function getSeries(BJData) {
     [
         ['上海', BJData]
     ].forEach(function (item, i) {
+
+        var target = [];
+        for (const key in geoCoordMap) {
+            if (geoCoordMap.hasOwnProperty(key)) {
+                var v = geoCoordMap[key];
+                target.push({
+                    name: key,
+                    value: v
+                });
+            }
+        }
+        item[1].forEach(function (o, i) {
+            target.forEach(function (v) {
+                if (o[0].name == v.name) {
+                    v.value = v.value.concat([o[0].value])
+                }
+            });
+        });
+
         series.push({
                 type: 'lines',
                 zlevel: 2,
@@ -38,6 +57,7 @@ function getSeries(BJData) {
                     symbolSize: 6, //图标大小
                 },
                 lineStyle: {
+                    type: "circle",
                     normal: {
                         width: 1, //尾迹线条宽度
                         opacity: 0, //尾迹线条透明度
@@ -49,9 +69,10 @@ function getSeries(BJData) {
             }, {
                 type: 'effectScatter',
                 coordinateSystem: 'geo',
+                showEffectOn: 'render',
                 zlevel: 2,
                 rippleEffect: { //涟漪特效
-                    period: 4, //动画时间，值越小速度越快
+                    period: 6, //动画时间，值越小速度越快
                     brushType: 'stroke', //波纹绘制方式 stroke, fill
                     scale: 4 //波纹圆环最大限制，值越大波纹越大
                 },
@@ -64,11 +85,13 @@ function getSeries(BJData) {
                     },
                     emphasis: {
                         show: true
-                    }
+                    },
+                    fontFamily:'Verdana, Geneva, sans-serif',
+                    fontSize:14
                 },
                 symbol: 'circle',
                 symbolSize: function (val) {
-                    return 4 + val[2] / 1000; //圆环大小
+                    return 10 + val[2] / 100; //圆环大小
                 },
                 itemStyle: {
                     normal: {
@@ -76,53 +99,48 @@ function getSeries(BJData) {
                         color: '#f00'
                     }
                 },
-                data: item[1].map(function (dataItem) {
-                    return {
-                        name: dataItem[0].name,
-                        value: geoCoordMap[dataItem[0].name].concat([dataItem[0].value])
-                    };
-                }),
+                data: target,
             },
-            //被攻击点
-            {
-                type: 'effectScatter',
-                coordinateSystem: 'geo',
-                zlevel: 2,
-                rippleEffect: {
-                    period: 4,
-                    brushType: 'stroke',
-                    scale: 4
-                },
-                label: {
-                    normal: {
-                        show: true,
-                        position: 'right',
-                        //offset:[5, 0],
-                        color: '#00ffff',
-                        formatter: '{b}',
-                        textStyle: {
-                            color: "#00ffff"
-                        }
-                    },
-                    emphasis: {
-                        show: true
-                    }
-                },
-                symbol: 'circle',
-                symbolSize: function (val) {
-                    return 4 + val[2] / 1000; //圆环大小
-                },
-                itemStyle: {
-                    normal: {
-                        show: true,
-                        color: '#9966cc'
-                    }
-                },
-                data: [{
-                    name: item[0],
-                    value: geoCoordMap[item[0]].concat([1000]),
-                }],
-            }
+            // //被攻击点
+            // {
+            //     type: 'effectScatter',
+            //     coordinateSystem: 'geo',
+            //     zlevel: 2,
+            //     rippleEffect: {
+            //         period: 6,
+            //         brushType: 'stroke',
+            //         scale: 4
+            //     },
+            //     label: {
+            //         normal: {
+            //             show: true,
+            //             position: 'right',
+            //             //offset:[5, 0],
+            //             color: '#00ffff',
+            //             formatter: '{b}',
+            //             textStyle: {
+            //                 color: "#00ffff"
+            //             }
+            //         },
+            //         emphasis: {
+            //             show: true
+            //         }
+            //     },
+            //     symbol: 'circle',
+            //     symbolSize: function (val) {
+            //         return 4 + val[2] / 1000; //圆环大小
+            //     },
+            //     itemStyle: {
+            //         normal: {
+            //             show: true,
+            //             color: '#9966cc'
+            //         }
+            //     },
+            //     data: [{
+            //         name: item[0],
+            //         value: geoCoordMap[item[0]].concat([1000]),
+            //     }],
+            // }
         );
     });
     return series;
