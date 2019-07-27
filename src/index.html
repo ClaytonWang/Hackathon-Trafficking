@@ -5,156 +5,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hackthone-ELPIS</title>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-
-    <style>
-        html,
-        body {
-            margin: 0 auto;
-            height: 100%;
-            width: 100%;
-            font-family: Verdana, Geneva, sans-serif;
-            font-size: 12px;
-            line-height: 1.5;
-            color: #333333;
-            background-color: #fff;
-        }
-
-        #main {
-            width: 100%;
-            height: 100%;
-        }
-
-        .search-box {
-            position: absolute;
-            left: 50%;
-            top: 15px;
-            z-index: 99;
-        }
-
-        .pop-win,
-        .pop-view,
-        .pop-view2 {
-            width: 470px;
-            height: auto;
-            border-radius: 5px;
-            background: #fff;
-            box-shadow: 0 0 10px 5px #7782c1;
-            opacity: 0.9;
-            position: absolute;
-            display: none;
-            z-index: 999;
-        }
-
-        .content {
-            width: 100%;
-            max-height: 320px;
-            overflow-y: auto;
-        }
-
-        .pop-row {
-            width: 100%;
-            border-radius: 5px;
-            background: #F8F9F9;
-            border-bottom: 1px solid #F0F0F0;
-            cursor: pointer;
-        }
-
-        .pop-row .img1 {}
-
-        .pop-row .span2 {
-            width: 130px;
-            display: block;
-            text-overflow:ellipsis; 
-            white-space: nowrap; 
-            overflow: hidden;
-        }
-
-        .pop-view {
-            width: 400px;
-            height: auto;
-            top:10px;
-            left: 10px;
-        }
-
-        .pop-view2 {
-            width: 400px;
-            height: auto;
-            top:10px;
-            left: 430px;
-        }
-
-        .img-content img {
-            display: inline-block;
-            width: 100%;
-            padding: 10px;
-        }
-
-        ol {
-            margin: 0px;
-            padding: 0px;
-        }
-
-        ol li:hover {
-            background: rgb(223, 226, 226);
-            border: 1px solid rgb(231, 222, 215);
-        }
-
-        ol li {
-            list-style: none;
-            display: inline-block;
-            width: 130px;
-            margin: 10px;
-            border: 1px solid #fff;
-        }
-
-        .img {
-            height: 145px;
-            background-size: cover;
-        }
-    </style>
+    <title>Hackathon-BABEL</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://kit-pro.fontawesome.com/releases/v5.9.0/css/pro.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- <div class="search-box">
-        <input type="text" name="search" class="search" value="">
-    </div> -->
-    <div id="main"></div>
-    <div class="pop-win">
-        <div style="height:30px;width:100%;border-radius:5px;background:#F8F9F9;border-bottom:1px solid #F0F0F0">
-            <span style="line-height:30px;margin-left:18px"></span>
-            <button type="button" class="close close-win" aria-label="Close" style="margin-right: 5px;">
-                <span aria-hidden="true">&times;</span>
-            </button>
+    <div class="header">
+        <h1 class="logo">
+            <img align="absmiddle" src="https://www.lexisnexis.com/images/gateway/ln-logo.png">
+            <span>Hackathon-BABEL</span>
+        </h1>
+    </div>
+    <div class="main">
+        <!-- <div class="container">
+            <h3>Tooltip Example</h3>
+            <a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>
+        </div> -->
+        <div class="container">
+            <div class="con-head">
+                <table>
+                    <tr>
+                        <td>
+                            <span style="margin-left: 20px;"><i class="fas fa-file-search"></i>&nbsp;Legal
+                                Document</span>
+                        </td>
+                        <td>
+                            <!-- <i class="fas fa-less-than-equal"></i> -->
+                            <span>
+                                <i class="fas fa-file-medical-alt" style="margin-left: 205px;cursor:pointer;"></i>
+                            </span>
+                            <!-- <div class="jfk-button-img"></div> -->
+                        </td>
+                        <td align="right">
+                            <span style="margin-right: 20px;"><i class="fas fa-file-check"></i>&nbsp;Translated
+                                Verion</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="con-wrap">
+                <div id="div-source" class="con-col" style="border-bottom-left-radius: 8px;">
+                    <textarea id="source" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"
+                        placeholder="Input words"></textarea>
+                </div>
+                <div id="div-result" class="con-col" style="background-color: #f5f5f5;border-bottom-right-radius: 8px;">
+                    <div class="result" style="padding-bottom: 20px;">
+                        The Director General and all officers appointed under subsection 5(2), and a person or an
+                        independent inspecting body appointed under subsection (1), shall be deemed to be public
+                        servants
+                        within
+                        the meaning of the Penal Code [Act 574].
+                        (4) The
+                        ~Director General and all officers appointed under subsection 5(2), and
+                        ~a person or an independent inspecting body appointed under subsection (1),
+                        will be considered to be public servants within the meaning of the Penal Code [Act 574].
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="content">
-
+        <div class="container refer" style="padding-right: 3px;">
+            <div class="con-head" style="margin-top: 10px;">
+                <table>
+                    <tr>
+                        <td>
+                            <span style="margin-left: 20px;"><i class="ln-img"></i>Related Legal Content</span></td>
+                        <td>
+                    </tr>
+                </table>
+            </div>
+            <div class="con-refer">
+                <div class="con-link">
+                    <a href="#" class="title">1. Members of the royal malaysian armed forces travelling on duty.</a>
+                </div>
+                <div class="result result-refer" style="background: #fff; padding-top:5px;">
+                    The Director General and all officers appointed under subsection 5(2), and a person or an
+                    independent inspecting body appointed under subsection (1), shall be deemed to be public servants
+                    within
+                    the meaning of the Penal Code [Act 574].
+                    (4) The
+                    ~Director General and all officers appointed under subsection 5(2), and
+                    ~a person or an independent inspecting body appointed under subsection (1),
+                    will be considered to be public servants within the meaning of the Penal Code [Act 574].
+                </div>
+                <div class="con-link">
+                    <a href="#" class="title">2. Members of the royal malaysian armed forces travelling on duty.Members
+                        of the royal
+                        malaysian armed forces travelling on duty.Members of the royal malaysian armed forces travelling
+                        on duty.</a>
+                </div>
+                <div class="result result-refer" style="background: #fff; padding-top:5px;">
+                    The Director General and all officers appointed under subsection 5(2), and a person or an
+                    independent inspecting body appointed under subsection (1), shall be deemed to be public servants
+                    within
+                    the meaning of the Penal Code [Act 574].
+                    (4) The
+                    ~Director General and all officers appointed under subsection 5(2), and
+                    ~a person or an independent inspecting body appointed under subsection (1),
+                    will be considered to be public servants within the meaning of the Penal Code [Act 574].
+                </div>
+            </div>
+        </div>
+        <div class="container refer" style="padding-left: 3px;">
+            <div class="con-head" style="margin-top: 10px;">
+                <table>
+                    <tr>
+                        <td>
+                            <span style="margin-left: 20px;">
+                                <i class="fas fa-cloud-download"></i>
+                                Checklist for Compliance</span></td>
+                        <td>
+                    </tr>
+                </table>
+            </div>
+            <div class="con-refer">
+                <div class="con-link">
+                    <a href="#" class="title">1. Members of the royal malaysian armed forces travelling on duty.</a>
+                </div>
+                <div class="result result-refer" style="background: #fff; padding-top:5px;">
+                    The Director General and all officers appointed under subsection 5(2), and a person or an
+                    independent inspecting body appointed under subsection (1), shall be deemed to be public servants
+                    within
+                    the meaning of the Penal Code [Act 574].
+                    (4) The
+                    ~Director General and all officers appointed under subsection 5(2), and
+                    ~a person or an independent inspecting body appointed under subsection (1),
+                    will be considered to be public servants within the meaning of the Penal Code [Act 574].
+                </div>
+                <div class="con-link">
+                    <a href="#" class="title">2. Members of the royal malaysian armed forces travelling on duty.Members
+                        of the royal
+                        malaysian armed forces travelling on duty.Members of the royal malaysian armed forces travelling
+                        on duty.</a>
+                </div>
+                <div class="result result-refer" style="background: #fff; padding-top:5px;">
+                    The Director General and all officers appointed under subsection 5(2), and a person or an
+                    independent inspecting body appointed under subsection (1), shall be deemed to be public servants
+                    within
+                    the meaning of the Penal Code [Act 574].
+                    (4) The
+                    ~Director General and all officers appointed under subsection 5(2), and
+                    ~a person or an independent inspecting body appointed under subsection (1),
+                    will be considered to be public servants within the meaning of the Penal Code [Act 574].
+                </div>
+            </div>
+        </div>
+        <div class="container" id="Diff">
+            <div class="con-head">
+                <table>
+                    <tr>
+                        <td align="center">
+                            <span style="margin-left: 20px;"><i class="fas fa-file-search"></i>&nbsp;Legal
+                                Document</span>
+                        </td>
+                        <td align="center">
+                            <span style="margin-right: 20px;"><i class="fas fa-file-check"></i>&nbsp;Translated
+                                Verion</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="con-wrap">
+                <div class="con-diff-col" style="background-color: #f5f5f5;border-bottom-left-radius: 8px;">
+                    <div class="result result-refer" style="padding-bottom: 20px;">
+                        The Director General and all officers appointed under subsection 5(2), and a person or an
+                        independent <a href="#" data-toggle="tooltip" title="inspecting test!">inspecting</a> body
+                        appointed under subsection (1), shall be deemed to be public
+                        servants
+                        within
+                        the meaning of the Penal Code [Act 574].
+                        (4) The
+                        ~Director General and all officers appointed under subsection 5(2), and
+                        ~a person or an independent inspecting body appointed under subsection (1),
+                        will be considered to be public servants within the meaning of the Penal Code [Act 574].
+                    </div>
+                </div>
+                <div class="con-diff-col" style="background-color: #f5f5f5;border-bottom-right-radius: 8px;">
+                    <div class="result result-refer" style="padding-bottom: 20px;">
+                        The Director General and all officers appointed under subsection 5(2), and a person or an
+                        independent <label class="green">inspecting</label> body appointed under subsection (1), shall
+                        be
+                        deemed to be public
+                        servants
+                        within
+                        the meaning of the Penal Code [Act 574].
+                        (4) The
+                        ~Director General and all officers appointed under subsection 5(2), and
+                        ~a person or an independent inspecting body appointed under subsection (1),
+                        will be considered to be public servants within the meaning of the Penal Code [Act 574].
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="pop-view">
-        <div style="height:30px;width:100%;border-radius:5px;background:#F8F9F9;border-bottom:1px solid #F0F0F0">
-            <span style="line-height:30px;margin-left:18px"></span>
-            <button type="button" class="close close-view" aria-label="Close" style="margin-right: 5px;">
-                <span aria-hidden="true">&times;</span>
-            </button>
+    <div class="marsk"></div>
+    <div class="footer">
+        <div class="footer-shade">
+            <span class="red"></span><span class="purple"></span><span class="blue"></span><span class="green"></span>
         </div>
-        <div class="view-content">
-            
+        <div class="copyright">
+            <div>
+                <a rel="nofollow" href="/en-us/terms/privacy-policy.page" id="Privacy" data-di-id="#Privacy">Privacy
+                    Policy</a>&nbsp;&nbsp; | &nbsp;&nbsp;
+                <a rel="nofollow" href="/privacy/default.aspx" id="Consumer-access"
+                    data-di-id="#Consumer-access">Consumer Access</a>&nbsp; &nbsp; | &nbsp;
+                <a rel="nofollow" href="/terms/" id="terms" data-di-id="#terms">Terms &amp; Conditions</a>&nbsp;&nbsp; |
+                &nbsp;&nbsp;
+                <a href="//www.lexisnexis.com/terms/copyright.aspx" class="copy" id="Copyright"
+                    data-di-id="#Copyright">Copyright © 2019 LexisNexis. All rights reserved.</a>
+                <a target="_blank" class="re-logo" href="http://www.relxgroup.com/Pages/Home.aspx" id="RE-Logo"
+                    data-di-id="#RE-Logo">RELX Group</a>
+            </div>
         </div>
     </div>
-    <div class="pop-view2">
-            <div style="height:30px;width:100%;border-radius:5px;background:#F8F9F9;border-bottom:1px solid #F0F0F0">
-                <span style="line-height:30px;margin-left:18px">Matched picture</span>
-                <!-- <button type="button" class="close close-view2" aria-label="Close" style="margin-right: 5px;">
-                    <span aria-hidden="true">&times;</span>
-                </button> -->
-            </div>
-            <div class="view-content2">
-                
-            </div>
-        </div>
 </body>
 
 </html>
